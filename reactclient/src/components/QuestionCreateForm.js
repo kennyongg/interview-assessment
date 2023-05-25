@@ -42,7 +42,7 @@ export default function QuestionCreateForm(props) {
 
   return (
     <form className="w-100 px-5">
-      <h1 className="mt-5">Create new question</h1>
+      <h1 className="mt-5">Create New Question</h1>
 
       <div className="mt-5">
         <label className="h3 form-label">Question Title</label>

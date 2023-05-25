@@ -2,7 +2,7 @@
 
 namespace CRUD.Data
 {
-    public class Question
+    public class Questions
     {
         [Key]
         public int QuestionId { get; set; }

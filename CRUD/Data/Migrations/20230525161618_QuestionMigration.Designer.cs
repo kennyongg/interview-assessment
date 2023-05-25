@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRUD.Data.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20230525092843_QuestionMigration")]
+    [Migration("20230525161618_QuestionMigration")]
     partial class QuestionMigration
     {
         /// <inheritdoc />

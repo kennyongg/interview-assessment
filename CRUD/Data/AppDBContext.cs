@@ -5,7 +5,10 @@ namespace CRUD.Data
 {
     public class AppDBContext : DbContext
     {
-        public DbSet<Question> Questions { get; set; }
+        public DbSet<Questions> Questions { get; set; }
+        public DbSet<Surveys> Surveys { get; set; }
+        public DbSet<SurveyAnswers> SurveyAnswers { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

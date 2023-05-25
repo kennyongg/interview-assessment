@@ -2,32 +2,32 @@
 
 namespace CRUD.Data
 {
-    public class QuestionsRepository
+    public class SurveyAnswersRepository
     {
-        internal async static Task<List<Questions>> GetQuestionsAsync()
+        internal async static Task<List<SurveyAnswers>> GetSurveyAnswersAsync()
         {
             using (var db = new AppDBContext())
             {
-                return await db.Questions.ToListAsync();
+                return await db.SurveyAnswers.ToListAsync();
             }
         }
 
-        internal async static Task<Questions> GetQuestionByIdAsync(int questionId)
+        internal async static Task<SurveyAnswers> GetSurveyAnswerByIdAsync(int surveyAnswerId)
         {
             using (var db = new AppDBContext())
             {
-                return await db.Questions
-                    .FirstOrDefaultAsync(question => question.QuestionId == questionId);
+                return await db.SurveyAnswers
+                    .FirstOrDefaultAsync(surveyAnswer => surveyAnswer.SurveyAnswerId == surveyAnswerId);
             }
         }
 
-        internal async static Task<bool> CreateQuestionAsync(Questions questionToCreate)
+        internal async static Task<bool> CreateSurveyAnswerAsync(SurveyAnswers surveyAnswerToCreate)
         {
             using (var db = new AppDBContext())
             {
                 try
                 {
-                    await db.Questions.AddAsync(questionToCreate);
+                    await db.SurveyAnswers.AddAsync(surveyAnswerToCreate);
 
                     return await db.SaveChangesAsync() >= 1;
                 }
@@ -38,13 +38,13 @@ namespace CRUD.Data
             }
         }
 
-        internal async static Task<bool> UpdateQuestionAsync(Questions questionToUpdate)
+        internal async static Task<bool> UpdateSurveyAnswerAsync(SurveyAnswers surveyAnswerToUpdate)
         {
             using (var db = new AppDBContext())
             {
                 try
                 {
-                    db.Questions.Update(questionToUpdate);
+                    db.SurveyAnswers.Update(surveyAnswerToUpdate);
 
                     return await db.SaveChangesAsync() >= 1;
                 }
@@ -55,15 +55,15 @@ namespace CRUD.Data
             }
         }
 
-        internal async static Task<bool> DeleteQuestionAsync(int questionId)
+        internal async static Task<bool> DeleteSurveyAnswerAsync(int surveyAnswerId)
         {
             using (var db = new AppDBContext())
             {
                 try
                 {
-                    Questions questionToDelete = await GetQuestionByIdAsync(questionId);
+                    SurveyAnswers surveyAnswerToDelete = await GetSurveyAnswerByIdAsync(surveyAnswerId);
 
-                    db.Remove(questionToDelete);
+                    db.Remove(surveyAnswerToDelete);
 
                     return await db.SaveChangesAsync() >= 1;
                 }
